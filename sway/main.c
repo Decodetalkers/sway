@@ -256,7 +256,9 @@ static const char usage[] =
 
 int main(int argc, char **argv) {
 	static bool verbose = false, debug = false, validate = false, allow_unsupported_gpu = false;
-
+	if(!getenv("XDG_CURRENT_DESKTOP")) {
+		setenv("XDG_CURRENT_DESKTOP", "sway", 0);
+	}
 	char *config_path = NULL;
 
 	int c;
